@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGMA ACADEMY</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/logo.png" />
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="font-sans bg-[#fdfcfb] text-gray-800">
+
+  <!-- Navbar with Hamburger Menu -->
+<header class="sticky top-0 z-50 bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <img src="images/logo.png" alt="Logo" class="h-10 w-10 object-cover rounded-full">
+      <h1 class="text-2xl font-bold">SIGMA ACADEMY</h1>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#home" class="hover:text-yellow-300">Home</a>
+      <a href="#about" class="hover:text-yellow-300">About</a>
+      <a href="#courses" class="hover:text-yellow-300">Courses</a>
+      <a href="#faculty" class="hover:text-yellow-300">Faculty</a>
+      <a href="#testimonials" class="hover:text-yellow-300">Testimonials</a>
+      <a href="#gallery" class="hover:text-yellow-300">Gallery</a>
+      <a href="#contact" class="hover:text-yellow-300">Contact</a>
+      <a href="#login" class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-500">Login</a>
+    </nav>
+
+    <!-- Hamburger Icon (Mobile Only) -->
+    <div class="md:hidden">
+      <button onclick="toggleMobileMenu()">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="hidden md:hidden flex-col space-y-3 px-4 pb-4 bg-[#2a5298] text-white">
+    <a href="#home" class="hover:text-yellow-300">Home</a>
+    <a href="#about" class="hover:text-yellow-300">About</a>
+    <a href="#courses" class="hover:text-yellow-300">Courses</a>
+    <a href="#faculty" class="hover:text-yellow-300">Faculty</a>
+    <a href="#testimonials" class="hover:text-yellow-300">Testimonials</a>
+    <a href="#gallery" class="hover:text-yellow-300">Gallery</a>
+    <a href="#contact" class="hover:text-yellow-300">Contact</a>
+    <a href="#login" class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-500 inline-block w-fit">Login</a>
+  </nav>
+</header>
+
+
+  <!-- Hero Section -->
+   
+  <section id="home" class="bg-[#f5f7fa] py-20 text-center px-4" >
+    <h2 class="text-4xl font-extrabold mb-4 text-[#1e3c72]">Welcome to SIGMA ACADEMY</h2>
+    <p class="text-xl text-gray-600 mb-6">Empowering minds, shaping futures in Mathematics.</p>
+    <a href="#courses" class="bg-[#1e3c72] text-white px-6 py-3 rounded-full hover:bg-[#16325c]">Explore Courses</a>
+  </section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-white text-center px-4" data-aos="fade-up">
+  
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-[#1e3c72] mb-4">About SIGMA ACADEMY</h2>
+    <p class="text-gray-700 text-lg leading-relaxed">
+      At SIGMA ACADEMY, we believe that mathematics is not just about numbers but about understanding the logic that shapes the world. 
+      We provide a deep conceptual learning approach designed to help students crack competitive exams like JEE, NTSE, and excel in board exams.
+    </p>
+  </div>
+</section>
+
+<!-- Courses Section -->
+<section id="courses" class="py-20 bg-gray-100 px-4" data-aos="zoom-in-up">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-[#1e3c72] mb-10">Our Courses</h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <button onclick="filterCourses('all')" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">All</button>
+      <button onclick="filterCourses('jee')" class="px-4 py-2 bg-blue-100 text-blue-800 rounded hover:bg-blue-200">JEE</button>
+      <button onclick="filterCourses('ntse')" class="px-4 py-2 bg-blue-100 text-blue-800 rounded hover:bg-blue-200">NTSE</button>
+      <button onclick="filterCourses('boards')" class="px-4 py-2 bg-blue-100 text-blue-800 rounded hover:bg-blue-200">Boards</button>
+    </div>
+
+    <!-- Courses Grid -->
+    <div id="courseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div class="course-card jee bg-white p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">JEE Mathematics Crash Course</h3>
+        <p class="text-gray-700 mb-2">Covers Class 11 & 12 topics intensively for JEE Mains & Advanced.</p>
+        <p class="text-sm text-gray-500 mb-3">Duration: 3 Months | Fees: ₹12,000</p>
+        <a href="brochures/jee.pdf" download class="text-blue-600 underline">Download Brochure</a>
+      </div>
+      <div class="course-card ntse bg-white p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">NTSE Foundation Program</h3>
+        <p class="text-gray-700 mb-2">Focus on critical thinking and math Olympiad skills for early classes.</p>
+        <p class="text-sm text-gray-500 mb-3">Duration: 6 Months | Fees: ₹9,500</p>
+        <a href="brochures/ntse.pdf" download class="text-blue-600 underline">Download Brochure</a>
+      </div>
+      <div class="course-card boards bg-white p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Class 10 Board Booster</h3>
+        <p class="text-gray-700 mb-2">Chapter-wise full coverage of CBSE Class 10 with tests and notes.</p>
+        <p class="text-sm text-gray-500 mb-3">Duration: 5 Months | Fees: ₹8,000</p>
+        <a href="brochures/class10.pdf" download class="text-blue-600 underline">Download Brochure</a>
+      </div>
+      <div class="course-card boards bg-white p-6 rounded-xl shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Class 9 Concept Builder</h3>
+        <p class="text-gray-700 mb-2">Conceptual understanding of Class 9 mathematics with weekly tests.</p>
+        <p class="text-sm text-gray-500 mb-3">Duration: 6 Months | Fees: ₹7,000</p>
+        <a href="brochures/class9.pdf" download class="text-blue-600 underline">Download Brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function filterCourses(category) {
+    const cards = document.querySelectorAll('.course-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.classList.contains(category)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<!-- Faculty Section -->
+<section id="faculty" class="py-20 bg-white px-4" data-aos="fade-left">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-[#1e3c72] mb-10">Meet Our Faculty</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-gray-100 p-6 rounded-lg shadow">
+        <img src="images/faculty1.jpg" class="w-24 h-24 mx-auto rounded-full mb-4" alt="Faculty 1">
+        <h3 class="font-bold text-xl">Arun Sharma</h3>
+        <p class="text-gray-600 text-sm">10+ Years Experience | IIT Alumni | JEE Expert</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow">
+        <img src="images/faculty2.jpg" class="w-24 h-24 mx-auto rounded-full mb-4" alt="Faculty 2">
+        <h3 class="font-bold text-xl">Neha Singh</h3>
+        <p class="text-gray-600 text-sm">Math Olympiad Coach | Board Mentor</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow">
+        <img src="images/faculty3.jpg" class="w-24 h-24 mx-auto rounded-full mb-4" alt="Faculty 3">
+        <h3 class="font-bold text-xl">Rajeev Verma</h3>
+        <p class="text-gray-600 text-sm">8+ Years Teaching | Foundation Programs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="py-20 bg-gray-50 text-center px-4" data-aos="fade-right">
+  <h2 class="text-3xl font-bold text-[#1e3c72] mb-10">What Students Say</h2>
+  <div class="max-w-4xl mx-auto space-y-8">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <p class="text-gray-700 italic">"Thanks to SIGMA ACADEMY, I scored 98 in Maths. Best faculty and notes!"</p>
+      <h4 class="mt-4 font-semibold">— Anjali, Class 10</h4>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <p class="text-gray-700 italic">"Cleared NTSE Stage 2 with their strong foundation program."</p>
+      <h4 class="mt-4 font-semibold">— Rohit, NTSE Student</h4>
+    </div>
+  </div>
+</section>
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-white text-center px-4" data-aos="zoom-in">
+  <h2 class="text-3xl font-bold text-[#1e3c72] mb-10">Gallery</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <img src="images/gallery1.jpg" class="rounded-lg shadow hover:scale-105 transition" alt="Gallery 1">
+    <img src="images/gallery2.jpg" class="rounded-lg shadow hover:scale-105 transition" alt="Gallery 2">
+    <img src="images/gallery3.jpg" class="rounded-lg shadow hover:scale-105 transition" alt="Gallery 3">
+  </div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-100 text-center px-4" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-[#1e3c72] mb-6">Contact Us</h2>
+  <form class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-4">
+    <input type="text" placeholder="Your Name" class="w-full border p-2 rounded" required>
+    <input type="email" placeholder="Your Email" class="w-full border p-2 rounded" required>
+    <textarea placeholder="Your Message" class="w-full border p-2 rounded" rows="4" required></textarea>
+    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
+  </form>
+
+  <div class="mt-10">
+    <iframe src="https://maps.google.com/maps?q=delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="py-16 bg-[#fdfcfb] text-center px-4" data-aos="zoom-in">
+  <h2 class="text-3xl font-bold text-[#1e3c72] mb-4">Stay Updated!</h2>
+  <p class="text-gray-600 mb-6">Subscribe to receive exam alerts, new courses, and tips from SIGMA ACADEMY.</p>
+  <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+    <input type="email" placeholder="Your email address" required
+           class="flex-1 px-4 py-2 border border-gray-300 rounded focus:outline-none">
+    <button type="submit"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">Subscribe</button>
+  </form>
+</section>
+<!-- Blog Section -->
+<section class="py-20 bg-white px-4 text-center" id="blog" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-[#1e3c72] mb-10">Latest from Our Blog</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <div class="bg-gray-100 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-2">Top 5 Tips to Ace Board Math</h3>
+      <p class="text-gray-600 mb-4">Strategies to score 95+ in your CBSE board exams from our experts.</p>
+      <a href="#" class="text-blue-600 underline">Read more</a>
+    </div>
+    <div class="bg-gray-100 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-2">How to Crack NTSE Stage 2</h3>
+      <p class="text-gray-600 mb-4">From syllabus breakdown to mock tests – all you need to know.</p>
+      <a href="#" class="text-blue-600 underline">Read more</a>
+    </div>
+    <div class="bg-gray-100 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-2">JEE Math in 3 Months</h3>
+      <p class="text-gray-600 mb-4">Our crash course strategy to help you qualify JEE Mains confidently.</p>
+      <a href="#" class="text-blue-600 underline">Read more</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Toggle Script for Hamburger Menu -->
+<script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  }
+</script>
+
+
+<!-- WhatsApp Button with Logo + Tooltip + Pulse -->
+<div class="fixed bottom-5 right-5 z-50 group">
+  <div class="relative flex items-center space-x-2">
+
+    <!-- Tooltip -->
+    <div class="absolute right-14 bg-white text-green-600 text-sm font-medium px-4 py-1.5 rounded-full shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300">
+      WhatsApp me
+    </div>
+
+    <!-- WhatsApp Button (pulse) -->
+    <a href="https://wa.me/919999999999" target="_blank"
+       class="bg-green-500 hover:bg-green-600 w-12 h-12 flex items-center justify-center rounded-full shadow-xl animate-pulse transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6 fill-white">
+        <path d="M16.002 3.072c-7.173 0-13 5.827-13 13 0 2.297.604 4.541 1.75 6.516L3.05 28.951l6.508-1.71a12.946 12.946 0 006.444 1.719c7.173 0 13-5.827 13-13s-5.827-13-13-13zm0 23.738a10.695 10.695 0 01-5.417-1.482l-.388-.229-3.864 1.016 1.032-3.77-.253-.392a10.645 10.645 0 01-1.635-5.692c0-5.9 4.798-10.698 10.698-10.698 5.9 0 10.698 4.798 10.698 10.698 0 5.9-4.798 10.698-10.698 10.698zm5.828-8.033c-.318-.159-1.882-.93-2.175-1.037-.293-.107-.507-.159-.72.159-.212.318-.827 1.037-1.015 1.25-.186.212-.372.239-.69.08-.318-.159-1.341-.494-2.555-1.577-.944-.841-1.58-1.88-1.765-2.198-.186-.318-.02-.49.14-.649.143-.143.318-.372.477-.558.159-.186.212-.318.318-.53.106-.212.053-.398-.026-.558-.08-.159-.72-1.733-.985-2.378-.259-.623-.523-.537-.72-.547-.186-.008-.398-.01-.61-.01s-.558.08-.85.398c-.293.318-1.116 1.09-1.116 2.658s1.142 3.082 1.301 3.296c.159.212 2.24 3.414 5.428 4.788.758.327 1.35.522 1.81.668.76.242 1.451.208 1.996.126.609-.091 1.882-.768 2.149-1.509.265-.741.265-1.376.185-1.509-.079-.133-.291-.212-.61-.371z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white text-center py-6 px-4" data-aos="fade-in">
+  <p class="mb-2">© 2025 SIGMA ACADEMY. All rights reserved.</p>
+  <div class="space-x-4">
+    <a href="#" class="hover:text-yellow-300">Privacy Policy</a>
+    <a href="#" class="hover:text-yellow-300">Terms</a>
+    <a href="https://instagram.com" target="_blank" class="hover:text-yellow-300">Instagram</a>
+    <a href="https://youtube.com" target="_blank" class="hover:text-yellow-300">YouTube</a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    offset: 100,
+    duration: 800,
+    once: true
+  });
+</script>
+
+<!-- Scroll to Top Button (Styled like WhatsApp) -->
+<button id="scrollTopBtn" onclick="scrollToTop()"
+  class="hidden fixed bottom-20 right-5 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition duration-300"
+  title="Back to Top"
+  data-aos="fade-up">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+       viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M5 15l7-7 7 7"/>
+  </svg>
+</button>
+
+<!-- Scroll to Top Script -->
+<script>
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollBtn.classList.remove("hidden");
+    } else {
+      scrollBtn.classList.add("hidden");
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+<!-- Chatbot Widget -->
+<script src="//code.tidio.co/yourtidioid.js" async></script>
+
+</body>
+</html>
+
